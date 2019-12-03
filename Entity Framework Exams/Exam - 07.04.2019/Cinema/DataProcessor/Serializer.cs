@@ -1,8 +1,12 @@
 ﻿namespace Cinema.DataProcessor
 {
-    using System;
+    using System.IO;
     using System.Linq;
+    using System.Text;
+    using System.Xml;
+    using System.Xml.Serialization;
 
+    using AutoMapper;
     using Cinema.DataProcessor.ExportDto;
     using Data;
     using Newtonsoft.Json;
@@ -48,7 +52,24 @@
 
         public static string ExportTopCustomers(CinemaContext context, int age)
         {
-            throw new NotImplementedException();
+            var customers = context
+                .Customers
+                .Where(c => c.Age >= age)
+                .OrderByDescending(c => c.Tickets.Sum(t => t.Price))
+                .Take(10)
+                .ToArray();
+
+            var customerDtos = Mapper.Map<ExportCustomerWithSpentMoneyDto[]>(customers);
+
+            var xmlSerializer = new XmlSerializer(typeof(ExportCustomerWithSpentMoneyDto[]),
+                           new XmlRootAttribute("Customers"));
+
+            var stringBuilder = new StringBuilder();
+
+            var namespaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+            xmlSerializer.Serialize(new StringWriter(stringBuilder), customerDtos, namespaces);
+
+            return stringBuilder.ToString().TrimEnd();
         }
     }
 }

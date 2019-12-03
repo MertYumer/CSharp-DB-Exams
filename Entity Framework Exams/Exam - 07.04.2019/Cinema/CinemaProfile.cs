@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+
     using AutoMapper;
     using Cinema.Data.Models;
     using Cinema.Data.Models.Enums;
@@ -24,6 +25,13 @@
             this.CreateMap<ImportTicketDto, Ticket>();
 
             this.CreateMap<ImportCustomerWithTicketsDto, Customer>();
+
+            this.CreateMap<Customer, ExportCustomerWithSpentMoneyDto>()
+                .ForMember(dest => dest.SpentMoney, 
+                opt => opt.MapFrom(src => src.Tickets.Sum(t => t.Price).ToString("f2")))
+                .ForMember(dest => dest.SpentTime, 
+                opt => opt.MapFrom(src => TimeSpan.FromMilliseconds(
+                    src.Tickets.Sum(t => t.Projection.Movie.Duration.TotalMilliseconds)).ToString(@"hh\:mm\:ss")));
         }
     }
 }

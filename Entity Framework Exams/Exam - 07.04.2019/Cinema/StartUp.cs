@@ -4,9 +4,8 @@
     using System.IO;
 
     using AutoMapper;
-    using Microsoft.EntityFrameworkCore;
-
     using Data;
+    using Microsoft.EntityFrameworkCore;
 
     public class StartUp
     {
