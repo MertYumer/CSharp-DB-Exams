@@ -30,41 +30,6 @@
         "Developer": "Behaviour Digital Inc.",
         "Tags": "Multi-player, Online Multi-Player, Co-op, Online Co-op, Steam Achievements, Full controller support, Steam Trading Cards, Steam Cloud",
         "Players": 1
-      },
-      {
-        "Id": 37,
-        "Title": "Darksiders III",
-        "Developer": "Gunfire Games",
-        "Tags": "Single-player, Steam Achievements, Full controller support, Steam Trading Cards, Steam Cloud",
-        "Players": 0
-      },
-      {
-        "Id": 43,
-        "Title": "Jurassic World Evolution",
-        "Developer": "Frontier Developments",
-        "Tags": "Single-player, Steam Achievements, Full controller support, Steam Trading Cards, Steam Cloud",
-        "Players": 0
-      },
-      {
-        "Id": 50,
-        "Title": "PLAYERUNKNOWN'S BATTLEGROUNDS",
-        "Developer": "PUBG Corporation",
-        "Tags": "Multi-player, Online Multi-Player, Stats",
-        "Players": 0
-      },
-      {
-        "Id": 58,
-        "Title": "Hunt Showdown",
-        "Developer": "Crytek",
-        "Tags": "Online Multi-Player, Online Co-op",
-        "Players": 0
-      },
-      {
-        "Id": 66,
-        "Title": "Seeking Dawn",
-        "Developer": "Multiverse",
-        "Tags": "Single-player, Multi-player, Online Multi-Player, Co-op, Online Co-op",
-        "Players": 0
       }
     ],
     "TotalPlayers": 10
